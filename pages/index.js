@@ -9,12 +9,20 @@ import arrow from "../public/rightArrow.svg"
 import astra from "../public/astra.svg"
 const inter = Inter({ subsets: ['latin'] })
 import dynamic from 'next/dynamic'
+import { motion, useScroll, useSpring } from 'framer-motion'
 
 const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
   ssr: false
 });
 
+
 export default function Home() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
   return (
     <>
       <Head>
@@ -57,8 +65,9 @@ export default function Home() {
         autoPlay={true}
         loop={true}
       />
-      <main className='grid grid-cols-2 grid-rows-3 h-[100vh] w-full gap-0'>
+      <main className='grid grid-cols-2 grid-rows-3 h-[100vh] w-full gap-0 scrollbar-hide'>
           <div className='flex justify-center col-span-2 items-start w-full pt-10 h-fit px-40 z-50'>
+        <motion.div className="progress-bar" style={{ scaleX }}/>
             <NavBar />
           </div>
         <div className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 col-span-2 h-fit opacity-40 px-40">
@@ -106,7 +115,7 @@ export default function Home() {
 
         </div>
         {/* bottom section */}
-        <div className="grid grid-cols-6 gap-20 lg:mx-40 col-span-2 h-fit bg-back leading-normal sticky top-64">
+        <div className="grid grid-cols-1 lg:grid-cols-6 xl:grid-cols-6 md:grid-cols-6 gap-20 lg:mx-40 col-span-2 h-fit bg-back leading-normal sticky top-72">
         {/* bottom left */}
           <div className="col-span-3 grid justify-start items-start min-h-[33vh] w-full p-10 xl:px-5 lg:px-5">
             <h1 className='text-left xl:text-reg lg:text-reg md:text-med text-sml'>
@@ -114,25 +123,26 @@ export default function Home() {
               predictions with our <br /> AI-powered app
             </h1>
             <p className='text-par'>
-              using advanced neural networks to <br /> 
+              using advanced neural networks to  
               analyze x-ray and radiology images.
             </p>
           </div>
         {/* bottom right */}
-          <div className="col-span-3 grid grid-cols-4 justify-center items-center h-[33vh] sticky top-64 overscroll-contain">
+          <div className="col-span-3 grid grid-cols-4 justify-center items-center h-[33vh] sticky top-72 overscroll-contain mr-2 xl:px-5 lg:p-0">
             <div className='flex flex-row justify-center items-center col-span-4 lg:col-span-3 xl:col-span-3 md:col-span-3 gap-2'>
-              <button className='flex flex-row justify-center 
+              <a className='flex flex-row justify-center 
                                 items-center border-2 border-white
                                 rounded-full
-                                gap-2 lg:gap-5 xl:gap-5 md:gap-5
+                                gap-4 lg:gap-5 xl:gap-5 md:gap-5
                                 mx-3 lg:px-0 xl:px-0 md:px-0
                                 h-20 lg:h-32 xl:h-32 md:h-32 w-full
-                                transition-all hover:gap-10
+                                transition-all hover:gap-10 lg:hover:gap-10 xl:hover:gap-10 md:hover:gap-10
                                 text-xs xl:text-base lg:text-base md:text-base'
               >
-                GET STARTED
-                <Image src={arrow} height={20} width={20} alt='abstract_mp'/>
-              </button>
+                <span>GET STARTED</span>
+                <Image className='z-20' src={arrow} height={20} width={20} alt='abstract_mp'/>
+                <div className="liquid"></div>
+              </a>
             </div>
             <div className='flex flex-col lg:flex-row xl:flex-row md:flex-row justify-center items-center col-span-4 lg:col-span-1 xl:col-span-1 md:col-span-1 rounded-full h-20 lg:h-32 xl:h-32 md:h-32 w-full object-contain'
             >

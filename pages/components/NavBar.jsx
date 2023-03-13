@@ -8,7 +8,7 @@ const NavBar = () => {
         <Image className='w-base pl-5 xl:p-0 lg:p-0 md:p-0' src={logo} height={80} width={80} alt='logo'/>
         <div 
           className='flex justify-center items-center gap-5
-                    xl:gap-10 lg:gap-10 md:gap-10'
+                    xl:gap-10 lg:gap-10 md:gap-10 text-sm xl:text-base lg:text-base md:text-base'
         >
             <p>HOME</p>
             <p>ABOUT US</p>
