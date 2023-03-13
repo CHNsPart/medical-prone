@@ -24,15 +24,35 @@ module.exports = {
       },
       keyframes: {
         wiggle: {
-        '0%, 100%': { 
-          scrollTo: '100px',
-          /* opacity: '0%' */
+          '0%, 100%': { 
+            scrollTo: '100px',
+          },
+          '50%': { 
+            scrollTo: '100px',
+            opacity: '100%' 
+          },
         },
-          '50%': { scrollTo: '100px', opacity: '100%' },
+        sato: {
+          '0%': { 
+            top: '0%',
+          },
+          '25%' : {
+            top: '-50%'
+          },
+          '50%' : {
+            top: '-100%'
+          },
+          '75%' : {
+            top: '50%'
+          },
+          '100%': {
+            top: '0%'
+          }
         },
       },
       animation: {
         wiggle: 'wiggle 2s ease-in-out infinite',
+        sato: 'sato 4s ease-in-out infinite',
       },
     },
   },

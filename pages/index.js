@@ -7,8 +7,12 @@ import Pages from './components/Pages'
 //import bg from "../public/abstract3d.mp4"
 import arrow from "../public/rightArrow.svg"
 import astra from "../public/astra.svg"
-
 const inter = Inter({ subsets: ['latin'] })
+import dynamic from 'next/dynamic'
+
+const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
+  ssr: false
+});
 
 export default function Home() {
   return (
@@ -19,6 +23,32 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <AnimatedCursor 
+        innerSize={8}
+        outerSize={20}
+        color='0,245,110'
+        outerAlpha={0.2}
+        innerScale={0.7}
+        outerScale={5}
+        trailingSpeed={8}
+        outerStyle={{
+          border: '0px solid rgba(0,245,110, .2)',
+          borderRadius: '50%',
+        }}
+        clickables={[
+          'a',
+          'input[type="text"]',
+          'input[type="email"]',
+          'input[type="number"]',
+          'input[type="submit"]',
+          'input[type="image"]',
+          'label[for]',
+          'select',
+          'textarea',
+          'button',
+          '.link'
+        ]}
+      />
       <video
         className="w-full h-full object-cover bg-no-repeat bg-center bg-cover max-h-[66.5vh] absolute -z-20 m-0 p-0"
         src="https://chnspart.com/JFTL/abstract3d.mp4"
@@ -41,11 +71,11 @@ export default function Home() {
                       xl:scrollbar-hide lg:scrollbar-hide md:scrollbar-hide
                       sm:scrollbar-hide 
                       hidden 
-                      xl:block lg:block
+                      xl:block lg:block relative
                       " 
           >
             <p className='text-sm xl:text-base lg:text-base md:text-sm
-                          select-none animate-pulse opacity-20 p-6'>
+                          select-none animate-sato delay-500 opacity-20 absolute top-0 p-6'>
                 "Atelectasis": "0.3185494840145111",<br />
                 "Cardiomegaly": "0.08868326246738434",<br />
                 "Consolidation": "0.2665356695652008",<br />
@@ -89,7 +119,7 @@ export default function Home() {
             </p>
           </div>
         {/* bottom right */}
-          <div className="col-span-3 grid grid-cols-4 justify-center items-center h-[33vh] sticky top-64">
+          <div className="col-span-3 grid grid-cols-4 justify-center items-center h-[33vh] sticky top-64 overscroll-contain">
             <div className='flex flex-row justify-center items-center col-span-4 lg:col-span-3 xl:col-span-3 md:col-span-3 gap-2'>
               <button className='flex flex-row justify-center 
                                 items-center border-2 border-white
@@ -114,12 +144,12 @@ export default function Home() {
                 loop={true}
                 src="https://chnspart.com/JFTL/abstract.mp4"
               />
-              <Image className='absolute xl:h-20 lg:h-15 md:h-10 h-10' src={astra} height={70} width={70} alt='abstract_mp'/>
+              <Image className='absolute xl:h-20 lg:h-15 md:h-10 h-10 hover:animate-spin' src={astra} height={70} width={70} alt='abstract_mp'/>
             </div>
           </div>
         </div>
       </main>
-      {/* <Pages/> */}
+      <Pages/>
     </>
   )
 }
