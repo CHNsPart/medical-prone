@@ -1,9 +1,8 @@
 import React from 'react'
-import Blob from './Blob'
+import "../../styles/blob.module.css"
 
-const Pages = () => {
+const Blob = () => {
   return (
-    <div className='h-[100vh] w-full flex justify-center items-center absolute'>
     <>
       <div class="wrapper">
         <div class="ball"></div>
@@ -21,8 +20,7 @@ const Pages = () => {
         </defs>
       </svg>
     </>
-    </div>
   )
 }
 
-export default Pages
+export default Blob
