@@ -32,6 +32,17 @@ module.exports = {
             opacity: '100%' 
           },
         },
+        fadeup: {
+          '0%': { 
+            opacity: '0%',
+          },
+          '50%': { 
+            opacity: '50%', 
+          },
+          '100%': { 
+            opacity: '100%', 
+          },
+        },
         sato: {
           '0%': { 
             top: '0%',
@@ -52,6 +63,7 @@ module.exports = {
       },
       animation: {
         wiggle: 'wiggle 2s ease-in-out infinite',
+        fadeup: 'fadeup 2s ease-in-out',
         sato: 'sato 4s ease-in-out infinite',
       },
     },

@@ -57,7 +57,15 @@ export default function Home() {
           '.link'
         ]}
       />
-      <video
+      <motion.video
+        initial={{ opacity: 0, scale: 0.5, borderRadius: "500px" }}
+        animate={{ opacity: 1, scale: 1, borderRadius: 0 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.5,
+          transition: "easeInOut",
+          //ease: [0, 0.71, 0.2, 1.01]
+        }}
         className="w-full h-full object-cover bg-no-repeat bg-center bg-cover max-h-[66.5vh] absolute -z-20 m-0 p-0"
         src="https://chnspart.com/JFTL/abstract3d.mp4"
         controls={false}
@@ -118,18 +126,50 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-6 xl:grid-cols-6 md:grid-cols-6 gap-20 lg:mx-40 col-span-2 h-fit bg-back leading-normal sticky top-72">
         {/* bottom left */}
           <div className="col-span-3 grid justify-start items-start min-h-[33vh] w-full p-10 xl:px-5 lg:px-5">
-            <h1 className='text-left xl:text-reg lg:text-reg md:text-med text-sml'>
+            <motion.h1
+              initial={{ opacity: 0, x: 80 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                type: "spring", 
+                stiffness: 20,
+                duration: 0.9,
+                delay: 1,
+                transition: "easeIn",
+              }} 
+              className='text-left xl:text-reg lg:text-reg md:text-med text-sml'
+              >
               Get accurate chest disease 
               predictions with our <br /> AI-powered app
-            </h1>
-            <p className='text-par'>
+            </motion.h1>
+            <motion.p className='text-par'
+              initial={{ opacity: 0, x: 80 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                type: "spring", 
+                stiffness: 20,
+                duration: 0.9,
+                delay: 1.2,
+                transition: "easeIn",
+              }} 
+            >
               using advanced neural networks to  
               analyze x-ray and radiology images.
-            </p>
+            </motion.p>
           </div>
         {/* bottom right */}
           <div className="col-span-3 grid grid-cols-4 justify-center items-center h-[33vh] sticky top-72 overscroll-contain mr-2 xl:px-5 lg:p-0">
-            <div className='flex flex-row justify-center items-center col-span-4 lg:col-span-3 xl:col-span-3 md:col-span-3 gap-2'>
+            <motion.div 
+              className='flex flex-row justify-center items-center col-span-4 lg:col-span-3 xl:col-span-3 md:col-span-3 gap-2'
+              initial={{ opacity: 0, y: 80 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring", 
+                stiffness: 20,
+                duration: 0.9,
+                delay: 1.8,
+                transition: "easeIn",
+              }} 
+            >
               <a className='flex flex-row justify-center 
                                 items-center border-2 border-white
                                 rounded-full
@@ -143,10 +183,19 @@ export default function Home() {
                 <Image className='z-20' src={arrow} height={20} width={20} alt='abstract_mp'/>
                 <div className="liquid"></div>
               </a>
-            </div>
+            </motion.div>
             <div className='flex flex-col lg:flex-row xl:flex-row md:flex-row justify-center items-center col-span-4 lg:col-span-1 xl:col-span-1 md:col-span-1 rounded-full h-20 lg:h-32 xl:h-32 md:h-32 w-full object-contain'
             >
-              <video 
+              <motion.video 
+                initial={{ opacity: 0, y: 80 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  type: "spring", 
+                  stiffness: 20,
+                  duration: 0.9,
+                  delay: 1.6,
+                  transition: "easeIn",
+                }} 
                 className="object-cover bg-no-repeat bg-center bg-cover rounded-full h-20 lg:h-32 xl:h-32 md:h-32"
                 controls={false}
                 muted={true}
@@ -154,7 +203,7 @@ export default function Home() {
                 loop={true}
                 src="https://chnspart.com/JFTL/abstract.mp4"
               />
-              <Image className='absolute xl:h-20 lg:h-15 md:h-10 h-10 hover:animate-spin' src={astra} height={70} width={70} alt='abstract_mp'/>
+              <Image className='absolute xl:h-20 lg:h-15 md:h-10 h-10 animate-fadeup hover:animate-spin' src={astra} height={70} width={70} alt='abstract_mp'/>
             </div>
           </div>
         </div>
