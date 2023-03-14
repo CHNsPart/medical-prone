@@ -11,12 +11,15 @@ import astra from "../public/astra.svg"
 const inter = Inter({ subsets: ['latin'] })
 import dynamic from 'next/dynamic'
 import { motion, useScroll, useSpring } from 'framer-motion'
+import Router from 'next/router'
 
 const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
   ssr: false
 });
 
 export default function Home() {
+
+  const [loading, setLoading] = useState(false)
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -25,14 +28,17 @@ export default function Home() {
     restDelta: 0.001
   });
 
-  const [loading, setLoading] = useState(false)
+  const handleButton = () => {
+    Router.push('/upload')
+  }
 
   useEffect(()=>{
-    setLoading(false)
+    setLoading(true)
     setTimeout(()=>{
       setLoading(false)
     },5000)
   },[])
+
 
   return (
     <>
@@ -190,14 +196,19 @@ export default function Home() {
                     transition: "easeIn",
                   }} 
                 >
-                  <a className='flex flex-row justify-center 
-                                    items-center border-2 border-white
-                                    rounded-full
-                                    gap-4 lg:gap-5 xl:gap-5 md:gap-5
-                                    mx-3 lg:px-0 xl:px-0 md:px-0
-                                    h-20 lg:h-32 xl:h-32 md:h-32 w-full
-                                    transition-all hover:gap-10 lg:hover:gap-10 xl:hover:gap-10 md:hover:gap-10
-                                    text-xs xl:text-base lg:text-base md:text-base'
+                  <a 
+                    type='button'
+                    onClick={handleButton}
+                    className='flex flex-row justify-center 
+                              items-center border-2 border-white
+                              rounded-full
+                              gap-4 lg:gap-5 xl:gap-5 md:gap-5
+                              mx-3 lg:px-0 xl:px-0 md:px-0
+                              h-20 lg:h-32 xl:h-32 md:h-32 w-full
+                              transition-all hover:gap-10
+                              lg:hover:gap-10 xl:hover:gap-10
+                              md:hover:gap-10 text-xs xl:text-base 
+                              lg:text-base md:text-base select-none'
                   >
                     <span>GET STARTED</span>
                     <Image className='z-20' src={arrow} height={20} width={20} alt='abstract_mp'/>
