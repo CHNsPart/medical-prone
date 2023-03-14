@@ -24,12 +24,14 @@ module.exports = {
       },
       keyframes: {
         wiggle: {
-          '0%, 100%': { 
-            scrollTo: '100px',
+          '0%': { 
+            transform: 'translateY(10px)',
           },
           '50%': { 
-            scrollTo: '100px',
-            opacity: '100%' 
+            transform: 'translateY(0px)'
+          },
+          '100%': { 
+            transform: 'translateY(10px)'
           },
         },
         fadeup: {
