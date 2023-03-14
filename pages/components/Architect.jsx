@@ -5,6 +5,8 @@ import input from "../../public/input.jpg"
 import outputs from "../../public/outputs.png"
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
+import Lottie from "lottie-react";
+import juggle from "../../public/juggling-master.json"
 
 const Architect = () => {
 
@@ -20,7 +22,22 @@ const Architect = () => {
         className='h-[100vh] w-full grid justify-center items-center
                   absolute grid-col-4 xl:grid-cols-4 lg:grid-col-4 md:grid-col-4 my-20'
       >
-      <div className='col-span-4 w-full grid grid-col-2 grid-rows-4 justify-center items-center'>
+      <div className='col-span-4 w-full grid grid-col-2 grid-rows-4 justify-center items-center mb-20'>
+        <Lottie
+          initial={{ opacity:0, y:200 }}
+          whileInView={{ opacity:100, y:0 }}
+          transition={{
+            duration: 0.6,
+            delay: 0.5,
+            transition: "easeInOut",
+            //ease: [0, 0.71, 0.2, 1.01]
+          }}   
+          className='row-span-4 justify-self-center'
+          animationData={juggle} 
+          loop={true} 
+          autoplay={true}
+          style={{ width: 200, height: 200 }}  
+        />
         <motion.h1 
           className='row-span-4 justify-self-center'
           initial={{ opacity:0, y:200 }}
@@ -84,9 +101,10 @@ const Architect = () => {
         > 
         { isDesktopOrLaptop ? 
           (
+            <>
             <p className='text-base justify-self-start justify-items-center
-                        select-none opacity-50 h-72 w-fit overflow-auto 
-                        scrollbar-hide'
+                        select-none opacity-50 max-h-72 w-fit overflow-auto 
+                        scrollbar-hide animate-sato'
             >
               {"{"}<br />"Atelectasis": "0.3185494840145111",<br />
               "Cardiomegaly": "0.08868326246738434",<br />
@@ -109,6 +127,7 @@ const Architect = () => {
               "Pneumothorax": "0.024134185165166855"<br />
               {"}"}
             </p>
+            </>
           )
           :
           (
