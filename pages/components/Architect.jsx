@@ -22,7 +22,7 @@ const Architect = () => {
         className='h-[100vh] w-full grid justify-center items-center
                   absolute grid-col-4 xl:grid-cols-4 lg:grid-col-4 md:grid-col-4 my-20'
       >
-      <div className='col-span-4 w-full grid grid-col-2 grid-rows-4 justify-center items-center mb-20'>
+      <div className='col-span-4 w-full grid grid-col-2 grid-rows-4 justify-center items-center pb-5'>
         <Lottie
           initial={{ opacity:0, y:200 }}
           whileInView={{ opacity:100, y:0 }}
@@ -78,7 +78,7 @@ const Architect = () => {
         
       {/* Center */}
         <motion.div
-          className='col-span-2 lg:col-span-2 xl:col-span-2 w-full xl:w-full lg:w-1/2 justify-self-center xl:justify-self-center'
+          className='col-span-2 lg:col-span-2 xl:col-span-2 w-full xl:w-3/4 lg:w-1/2 justify-self-center xl:justify-self-center'
           style={{ opacity: scrollYProgress}}
           initial={{ opacity:0, y:200 }}
           whileInView={{ opacity:100, y:0 }}
