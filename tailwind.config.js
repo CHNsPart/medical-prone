@@ -10,6 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+       backgroundImage: {
+        'abstract': "url('/astra.svg')",
+      },
       colors: {
         transparent: 'transparent',
         back:'#1A1A1A',

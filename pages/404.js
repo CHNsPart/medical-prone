@@ -5,10 +5,42 @@ import arrow from '../public/rightArrow.svg'
 import Router from 'next/router'
 import Lottie from "lottie-react";
 import drop from "../public/drop404.json"
+import dynamic from 'next/dynamic'
+
+const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
+  ssr: false
+});
 
 const NotFound = () => {
+
   return (
 <div className="w-full h-screen flex flex-col justify-center items-center">
+        <AnimatedCursor 
+            innerSize={8}
+            outerSize={20}
+            color='0,245,110'
+            outerAlpha={0.2}
+            innerScale={0.7}
+            outerScale={5}
+            trailingSpeed={8}
+            outerStyle={{
+                border: '0px solid rgba(0,245,110, .2)',
+                borderRadius: '50%',
+            }}
+            clickables={[
+                'a',
+                'input[type="text"]',
+                'input[type="email"]',
+                'input[type="number"]',
+                'input[type="submit"]',
+                'input[type="image"]',
+                'label[for]',
+                'select',
+                'textarea',
+                'button',
+                '.link'
+            ]}
+        />
       <motion.div
         className="flex justify-center items-center my-5"
         layout
@@ -28,13 +60,23 @@ const NotFound = () => {
         }}
       >
         <span className="text-[6rem] font-bold leading-[6rem]">4</span>
-        <span className="text-[6rem] font-bold leading-[6rem]">
+        <motion.span
+            initial={{ opacity:0, scale:0.3  }}
+            animate={{ opacity:100, scale:1  }}
+            transition={{
+                duration: 1,
+                delay: 0.6,
+                transition: "easeInOut",
+                //ease: [0, 0.71, 0.2, 1.01]
+            }}   
+            className="text-[6rem] font-bold leading-[6rem]"
+        >
             <Lottie
                 initial={{ opacity:0, y:200 }}
                 whileInView={{ opacity:100, y:0 }}
                 transition={{
                     duration: 0.6,
-                    delay: 0.5,
+                    delay: 1,
                     transition: "easeInOut",
                     //ease: [0, 0.71, 0.2, 1.01]
                 }}   
@@ -44,7 +86,7 @@ const NotFound = () => {
                 autoplay={true}
                 style={{ width: 200, height: 200 }}  
             />
-        </span>
+        </motion.span>
         <span className="text-[6rem] font-bold leading-[6rem]">4</span>
       </motion.div>
 
@@ -67,8 +109,10 @@ const NotFound = () => {
           },
         }}
         >
-        WE ARE <span className="text-primary font-bold">SORRY</span>, BUT THE
-        PAGE YOU REQUESTED WAS NOT FOUND !
+        THE
+        PAGE YOU REQUESTED WAS 
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-darkBrandGreen via-brandGreen to-darkBrandGreen"> NOT FOUND !</span>
+        {/* bg-gradient-to-tr to-darkBrandGreen from-brandGreen */}
       </motion.p>
 
       {/* <Link href="/auth/signin"> */}
