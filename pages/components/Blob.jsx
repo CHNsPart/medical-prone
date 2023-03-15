@@ -3,7 +3,6 @@ import "../../styles/blob.module.css"
 
 const Blob = () => {
   return (
-    <div className='h-[100vh] w-full flex justify-center items-center absolute'>
       <>
         <div class="wrapper">
           <div class="ball"></div>
@@ -21,7 +20,6 @@ const Blob = () => {
           </defs>
         </svg>
       </>
-    </div>
   )
 }
 

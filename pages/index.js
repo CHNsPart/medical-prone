@@ -44,7 +44,7 @@ export default function Home() {
     <>
     { loading ? 
       (
-        <div>
+        <div className='h-[100vh] w-full flex justify-center items-center absolute'>
           <Blob/>
         </div>
       ) 
@@ -101,7 +101,7 @@ export default function Home() {
           />
           <main className='grid grid-cols-2 grid-rows-3 h-[100vh] w-full gap-0 scrollbar-hide'>
               <div className='flex justify-center col-span-2 items-start w-full pt-10 h-fit px-40 z-50'>
-            <motion.div className="progress-bar" style={{ scaleX }}/>
+                <motion.div className="progress-bar" style={{ scaleX }}/>
                 <NavBar />
               </div>
             <div className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 col-span-2 h-fit opacity-40 px-40">
