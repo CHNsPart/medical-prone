@@ -20,7 +20,7 @@ const Architect = () => {
     <>
       <motion.div 
         className='h-[100vh] w-full grid justify-center items-center
-                  absolute grid-col-4 xl:grid-cols-4 lg:grid-col-4 md:grid-col-4 my-20'
+                  absolute grid-col-4 xl:grid-cols-4 lg:grid-col-4 md:grid-col-4 my-20 space-x-0'
       >
       <div className='col-span-4 w-full grid grid-col-2 grid-rows-4 justify-center items-center pb-5'>
         <Lottie
@@ -70,7 +70,7 @@ const Architect = () => {
         <motion.div
           className='h-auto w-1/2 grid grid-col-1 justify-end 
                     items-center text-back justify-self-end rounded-xl 
-                    bg-clip-padding object-contain px-2'
+                    bg-clip-padding object-contain px-2 xl:px-2 lg:px-0'
         > 
           <Image className='animate-wiggle object-fill object-center h-auto w-full rounded-xl border-2 border-brandGreen shadow-2xl xl:shadow-xl lg:shadow-xl xl:shadow-brandGreen lg:shadow-brandGreen shadow-brandGreen ' src={input} alt='input' />
         </motion.div> 
@@ -95,7 +95,7 @@ const Architect = () => {
 
       {/* Right */}
         <motion.div
-          className='h-auto w-1/2 justify-end order-6
+          className='h-auto w-3/4 justify-end
                     items-center text-white justify-self-start rounded-xl 
                     bg-clip-padding object-contain' 
         > 
@@ -138,7 +138,7 @@ const Architect = () => {
               >
                 {"Output"}
             </p> */
-            <Image className='object-fill object-center h-auto w-full rounded-xl px-2' src={outputs} alt='input' />
+            <Image className='object-fill object-center h-auto w-full rounded-xl px-2 md:px-10 lg:px-14 xl:px-2' src={outputs} alt='input' />
           ) 
         }
         </motion.div>
