@@ -3,11 +3,13 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import upload from "../../public/upload.json"
+import complete from "../../public/complete.json"
 import arrow from "../../public/rightArrow.svg"
 import dynamic from 'next/dynamic'
 import { CiImageOn } from "react-icons/ci"
 import NavBar from "../components/NavBar";
 import { RxCross2 } from "react-icons/rx"
+import { AiOutlineLoading } from "react-icons/ai"
 import { useMediaQuery } from 'react-responsive'
 const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
   ssr: false
@@ -20,10 +22,18 @@ const index = () => {
 
   const timer = setTimeout(() => setStatus(true), 3000);
 
+  useEffect(() => {
+    setStatus(true)
+    setTimeout(() => setStatus(true), 5000);
+    setStatus(false)
+    return () => {
+      clearTimeout()
+    }
+  },[files])
+
   const handleSubmit = (e) => {
+    //setFiles(false)
     e.preventDefault();
-    clearTimeout(timer)
-    // set timeout
     const file = fileInputField.current.files[0];
     //setFiles(file)
     if(file){
@@ -34,6 +44,7 @@ const index = () => {
       };
     }
   }
+
   const removeFile = () => {
     setFiles("")
     setStatus(false)
@@ -84,7 +95,6 @@ const index = () => {
               transition: "easeInOut",
               //ease: [0, 0.71, 0.2, 1.01]
             }} 
-            id="waveButton"
             className="w-60 h-40 bg-back border-2 border-dashed border-white rounded-xl flex justify-center items-center relative"
           >
               <p className="text-center w-full z-10 justify-self-center place-items-center tracking-widest font-bold absolute top-20">
@@ -104,7 +114,7 @@ const index = () => {
                 animationData={upload} 
                 loop={true} 
                 autoplay={true}
-                style={{ width: "100%", height: "100%" }}  
+                style={{ width: 200, height: 150 }}  
               />
             <div className="liquid"></div> 
             <input type="file" onChange={handleSubmit} ref={fileInputField} className="opacity-0 z-40 w-full h-full" />
@@ -131,11 +141,44 @@ const index = () => {
               </div>
               { status ? 
                 (
-                  <img className="p-2 rounded-2xl bg-cover" height={200} src={files==="" ? "#" : files} loading="lazy" width={200} alt="preview" />
+                  <motion.img 
+                    className="p-2 rounded-2xl bg-cover"  
+                    height={200} 
+                    src={files==="" ? "#" : files} 
+                    loading="lazy" 
+                    width={200} alt="preview" 
+                    initial={{opacity:0}}
+                    animate={{opacity:1}}
+                    transition={{
+                      duration: 1,
+                      delay: 2,
+                      transition: "easeInOut",
+                      //ease: [0, 0.71, 0.2, 1.01]
+                    }}  
+                  />
                 ) 
                 : 
                 (
-                  <p>Loading</p>
+                <div 
+                  className="h-full w-full absolute z-40 flex justify-center items-center"
+                  
+                >
+                  <Lottie
+                  // initial={{ opacity:0, y:200 }}
+                  // whileInView={{ opacity:100, y:0 }}
+                  // transition={{
+                  //   duration: 1,
+                  //   delay: 1,
+                  //   transition: "easeInOut",
+                  //   //ease: [0, 0.71, 0.2, 1.01]
+                  // }}   
+                  className='row-span-4 justify-self-center absolute z-50 rounded-xl'
+                  animationData={complete} 
+                  loop={true} 
+                  autoplay={false}
+                  style={{ width: 150, height: 150 }}  
+                />
+                </div> 
                 ) 
               }
               
