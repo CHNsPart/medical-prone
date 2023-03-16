@@ -12,6 +12,7 @@ import { RxCross2 } from "react-icons/rx"
 import { AiOutlineLoading } from "react-icons/ai"
 import { useMediaQuery } from 'react-responsive'
 import axios from "axios";
+import FormData from 'form-data'
 const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
   ssr: false
 });
@@ -20,10 +21,12 @@ const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
 
 const index = () => {
   const fileInputField = useRef(null);
-  const [formData, setFormData] = useState({});
-  const [files, setFiles] = useState();
+  // const [formData, setFormData] = useState(new FormData());
+  const [files, setFiles] = useState(null);
+  const [thumbnail, setThumbnail] = useState(null);
   const [status, setStatus] = useState(false);
   const [error, setError] = useState(false);
+  const [processing, setProcessing] = useState(false);
   const [errorText, setErrorText] = useState("");
 
   useEffect(() => {
@@ -38,16 +41,17 @@ const index = () => {
   const handleUpload = (e) => {
     //setFiles(false)
     e.preventDefault();
+    const thumbnail = URL.createObjectURL(fileInputField.current.files[0]);
     const file = fileInputField.current.files[0];
-    // setError(false)
-    setFiles(URL.createObjectURL(file))
-    setFormData({'file': URL.createObjectURL(file)},{'process_type': 'Single'})
+    setFiles(file)
+    setThumbnail(thumbnail)
+    // setFormData({'file': URL.createObjectURL(file)},{'process_type': 'Single'})
 
     // if(file){
     //   const reader = new FileReader();
-    //   reader.readAsDataURL(file);
+    //   //reader.readAsDataURL(file);
     //   reader.onload = () => {
-    //     setFiles(reader.result);
+    //     setFiles(reader.result)
     //   };
     // }
   }
@@ -64,28 +68,34 @@ const index = () => {
 
   const handleSubmitButton = async (e) => {
     e.preventDefault()
-    console.log("formData",formData)
+    setProcessing(true)
+    const data = new FormData();
+    data.append("file", files);
+    data.append("process_type", "Single");
     try {
       setError(false)
       setErrorText("")
-      axios.post('https://footfall.pagekite.me/api/upload', formData,
+      axios.post('https://footfall.pagekite.me/api/upload', data,
         {
           headers: {
-            'Content-Type': 'multipart/form-data'
+            'Content-Type': 'multipart/form-data',
           }
         }
       )
       .then(function(res){
+        setProcessing(false)
         console.log(res)
       })
       .catch(function(error){
         setError(true)
         setErrorText("")
         setErrorText(error.message)
+        setProcessing(false)
         console.log(error.message)
       })
     } catch (error) {
       // setError(true)
+      setProcessing(false)
       console.log(error)
     }
   }
@@ -154,7 +164,7 @@ const index = () => {
                 style={{ width: 200, height: 150 }}  
               />
             <div className="liquid"></div> 
-            <input type="file" accept="image/*" onChange={handleUpload} ref={fileInputField} className="opacity-0 z-40 w-full h-full" />
+            <input type="file" accept="image/*" onChange={handleUpload} ref={fileInputField} required className="opacity-0 z-40 w-full h-full" />
           </motion.div>
         </form>
         <motion.div 
@@ -188,7 +198,7 @@ const index = () => {
                   <motion.img 
                     className="p-2 rounded-2xl bg-cover"  
                     height={200} 
-                    src={files==="" ? "#" : files} 
+                    src={thumbnail==="" ? "#" : thumbnail} 
                     loading="lazy" 
                     width={200} alt="preview" 
                     // initial={{opacity:0}}
@@ -207,7 +217,6 @@ const index = () => {
                   className="h-full w-full absolute z-50 flex justify-center items-center"
                   
                 >
-                  {/* <AiOutlineLoading size={isDesktopOrLaptop ? 40 : 40} className="animate-spin text-brandGreen z-50 opacity-100 bg-back rounded-full p-2" /> */}
                   <Lottie
                     initial={{ opacity:0 }}
                     animate={{ opacity:100 }}
@@ -245,7 +254,7 @@ const index = () => {
         }} 
       >
         <a 
-          type='button'
+          type='submit'
           onClick={handleSubmitButton}
           className='flex flex-row justify-center 
                     items-center border-2 border-white
@@ -258,8 +267,22 @@ const index = () => {
                     md:hover:gap-10 text-xs xl:text-base 
                     lg:text-base md:text-base select-none'
         >
-          <span>SUBMIT</span>
-          <Image className='z-20' src={arrow} height={20} width={20} alt='abstract_mp'/>
+          <span>
+            { !processing ?
+              <div className="flex flex-row gap-5 tracking-widest">
+                SUBMIT <Image className='z-20' src={arrow} height={20} width={20} alt='abstract_mp'/>
+              </div>
+              :
+              <>
+                <AiOutlineLoading 
+                  size={isDesktopOrLaptop ? 40 : 40} 
+                  className="animate-spin text-brandGreen z-50 
+                            opacity-100 bg-back rounded-full p-2" 
+                />
+              </> 
+            }
+          </span>
+          
           <div className="liquid"></div>
         </a>
       { error ? 
