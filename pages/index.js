@@ -65,10 +65,10 @@ export default function Home() {
             innerScale={0.7}
             outerScale={5}
             trailingSpeed={8}
-            outerStyle={{
-              border: '0px solid rgba(0,245,110, .2)',
-              borderRadius: '50%',
-            }}
+            // outerStyle={{
+            //   border: '0px solid rgba(0,245,110, .2)',
+            //   borderRadius: '50%',
+            // }}
             clickables={[
               'a',
               'input[type="text"]',

@@ -33,7 +33,7 @@ const Architect = () => {
             //ease: [0, 0.71, 0.2, 1.01]
           }}   
           className='row-span-4 justify-self-center'
-          animationData={juggle} 
+          animationData={JSON.parse(JSON.stringify(juggle))} 
           loop={true} 
           autoplay={true}
           style={{ width: 200, height: 200 }}  

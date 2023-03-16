@@ -4,10 +4,10 @@ import "../../styles/blob.module.css"
 const Blob = () => {
   return (
       <>
-        <div class="wrapper">
-          <div class="ball"></div>
-          <div class="ball"></div>
-          <div class="ball"></div>
+        <div className="wrapper">
+          <div className="ball"></div>
+          <div className="ball"></div>
+          <div className="ball"></div>
         </div>
 
         <svg>

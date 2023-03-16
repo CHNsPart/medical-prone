@@ -2,8 +2,12 @@ import React from 'react'
 import logo from "../../public/logo.svg"
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import Router from 'next/router'
 
 const NavBar = () => {
+  const handleHome = () => {
+    Router.push("/")
+  }
   return (
     <motion.div 
       initial={{ opacity: 0, y: -80 }}
@@ -22,7 +26,7 @@ const NavBar = () => {
           className='flex justify-center items-center gap-5
                     xl:gap-10 lg:gap-10 md:gap-10 text-sm xl:text-base lg:text-base md:text-base'
         >
-            <button>HOME</button>
+            <button onClick={handleHome}>HOME</button>
             <button>ABOUT US</button>
             <button className='bg-gradient-to-t from-brandGreen to-darkBrandGreen py-2 px-4 rounded-full mr-2 lg:m-0 xl:m-0 md:m-0 z-50'>SIGN IN</button>
         </div>
