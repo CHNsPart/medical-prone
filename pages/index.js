@@ -69,19 +69,20 @@ export default function Home() {
             //   border: '0px solid rgba(0,245,110, .2)',
             //   borderRadius: '50%',
             // }}
-            clickables={[
-              'a',
-              'input[type="text"]',
-              'input[type="email"]',
-              'input[type="number"]',
-              'input[type="submit"]',
-              'input[type="image"]',
-              'label[for]',
-              'select',
-              'textarea',
-              'button',
-              '.link'
-            ]}
+            // clickables={[
+            //   'a',
+            //   'input[type="text"]',
+            //   'input[type="email"]',
+            //   'input[type="number"]',
+            //   'input[type="submit"]',
+            //   'input[type="image"]',
+            //   'label[for]',
+            //   'select',
+            //   'textarea',
+            //   'button',
+            //   'img',
+            //   '.link'
+            // ]}
           />
           <motion.video
             initial={{ opacity: 0, scale: 0.5, borderRadius: "500px" }}
