@@ -27,6 +27,7 @@ export default function index() {
   const [files, setFiles] = useState(null);
   const [thumbnail, setThumbnail] = useState(null);
   const [status, setStatus] = useState(false);
+  const [result, setResult] = useState(null);
   const [dataProcessed, setDataProcessed] = useState(false);
   const [error, setError] = useState(false);
   const [processing, setProcessing] = useState(false);
@@ -78,6 +79,7 @@ export default function index() {
       data.append("process_type", "Single");
       try {
         setError(false)
+        setResult(null)
         setErrorText("")
         axios.post('https://footfall.pagekite.me/api/upload', data,
           {
@@ -88,8 +90,12 @@ export default function index() {
         )
         .then(function(res){
           setProcessing(false)
-          setDataProcessed(true)
+          setResult(res)
+          if(res!==null){
+            setDataProcessed(true)
+          }
           console.log(res)
+          console.log(res.data.data)
         })
         .catch(function(error){
           setError(true)
@@ -111,7 +117,6 @@ export default function index() {
       setStatus(false)
       alert("see")
     }
-
   }
 
   return (
@@ -159,8 +164,58 @@ export default function index() {
               transition: "easeInOut",
               //ease: [0, 0.71, 0.2, 1.01]
             }}
+            className="grid bg-[#2A2A2A] rounded-xl p-5 grid-cols-2 justify-center items-center h-fit"
           >
-            <p>See details</p>
+            {/* Left Pred */}
+            <motion.div 
+              className="justify-self-center"
+              initial={{ opacity:0, x:-100 }}
+              animate={{ opacity:100, x:0 }}
+              transition={{
+                duration: 1,
+                delay: 0.6,
+                transition: "easeInOut",
+                //ease: [0, 0.71, 0.2, 1.01]
+              }}
+            >
+              <p className="w-40 h-40 bg-[#1A1A1A] rounded-xl 
+                        justify-self-center flex justify-center 
+                        items-center"
+              >
+                {JSON.stringify(result.data.data)}
+              </p>
+              {/* { 
+                (result.data.data).map((item)=>{
+                  <p key={item} className="w-40 h-40 bg-[#1A1A1A] rounded-xl 
+                            justify-self-center flex justify-center 
+                            items-center"
+                  >
+                    {item}
+                  </p>
+                })
+              } */}
+            </motion.div>
+            {/* Right Pred */}
+            <motion.div 
+              className="w-40 h-40 bg-[#1A1A1A] rounded-xl 
+                        justify-self-center flex justify-center items-center"
+              initial={{ opacity:0, x:100 }}
+              animate={{ opacity:100, x:0 }}
+              transition={{
+                duration: 1,
+                delay: 0.6,
+                transition: "easeInOut",
+                //ease: [0, 0.71, 0.2, 1.01]
+              }} 
+            >
+              <img 
+                className="p-2 rounded-2xl bg-cover"  
+                height={200} 
+                src={thumbnail==="" ? result.data.file_url : thumbnail} 
+                loading="lazy" 
+                width={200} alt="result image"
+              />
+            </motion.div>
           </motion.div>
         ) 
         : 
@@ -326,7 +381,7 @@ export default function index() {
                 <span>
                   { !processing ?
                     <div className="flex flex-row gap-5 tracking-widest">
-                      { dataProcessed ? "VIEW DETAILS" : "SUBMIT"} <Image className='z-20' src={arrow} height={20} width={20} alt='abstract_mp'/>
+                      SUBMIT<Image className='z-20' src={arrow} height={20} width={20} alt='abstract_mp'/>
                     </div>
                     :
                     <>

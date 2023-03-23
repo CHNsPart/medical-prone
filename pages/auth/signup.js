@@ -21,9 +21,9 @@ export default function signup() {
           <input type="text" name="username" placeholder='username'
             className={inputStyle}
           />
-          <input type="email" name="email" placeholder='e-mail'
+          {/* <input type="email" name="email" placeholder='e-mail'
             className={inputStyle}
-          />
+          /> */}
           <input type="password" name="password" placeholder='password'
             className={inputStyle}
           />
