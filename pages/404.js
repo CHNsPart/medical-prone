@@ -118,7 +118,7 @@ const NotFound = () => {
       {/* <Link href="/auth/signin"> */}
       {/* onClick={() => Router.back()} */}
         <motion.div 
-            className='flex flex-row justify-center items-center w-1/4 mt-10'
+            className='flex flex-row justify-center items-center w-3/4 md:w-2/4 lg:w-1/4 xl:w-1/4 mt-10'
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{

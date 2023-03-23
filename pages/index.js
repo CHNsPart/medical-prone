@@ -45,6 +45,14 @@ export default function Home() {
     { loading ? 
       (
         <div className='h-[100vh] w-full flex justify-center items-center absolute'>
+          <Head>
+            <title>Medical Prone</title>
+            <meta name="description" content="Medical Prone AI" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta name="description" content="Author: Touhidul Islam Chayan,
+    Medical Prone is a Artificial Intelligence or Machine Learning app for medical purpose. This app helps doctors to analyze and predict diseases from radiology or x-ray image input to an output where every possible disease from 0 to 100%"/>
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
           <Blob/>
         </div>
       ) 
@@ -55,6 +63,8 @@ export default function Home() {
             <title>Medical Prone</title>
             <meta name="description" content="Medical Prone AI" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta name="description" content="Author: Touhidul Islam Chayan,
+    Medical Prone is a Artificial Intelligence or Machine Learning app for medical purpose. This app helps doctors to analyze and predict diseases from radiology or x-ray image input to an output where every possible disease from 0 to 100%"/>
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <AnimatedCursor 
@@ -184,7 +194,7 @@ export default function Home() {
                 </motion.p>
               </div>
             {/* bottom right */}
-              <div className="col-span-3 grid grid-cols-4 justify-center items-center h-[33vh] sticky top-72 overscroll-contain mr-2 xl:px-5 lg:p-0">
+              <div className="col-span-3 grid grid-cols-4 justify-center items-center h-[33vh] sticky top-72 overscroll-contain m-0 xl:px-5 lg:p-0">
                 <motion.div 
                   className='flex flex-row justify-center items-center col-span-4 lg:col-span-3 xl:col-span-3 md:col-span-3 gap-2'
                   initial={{ opacity: 0, y: 80 }}

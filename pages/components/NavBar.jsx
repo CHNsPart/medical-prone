@@ -4,6 +4,10 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Router from 'next/router'
 
+const handleAuth = () => {
+  Router.push("/auth/signin")
+}
+
 const NavBar = () => {
   const handleHome = () => {
     Router.push("/")
@@ -28,7 +32,7 @@ const NavBar = () => {
         >
             <button onClick={handleHome}>HOME</button>
             <button>ABOUT US</button>
-            <button className='bg-gradient-to-t from-brandGreen to-darkBrandGreen py-2 px-4 rounded-full mr-2 lg:m-0 xl:m-0 md:m-0 z-50'>SIGN IN</button>
+            <button onClick={handleAuth} className='bg-gradient-to-t from-brandGreen to-darkBrandGreen py-2 px-4 rounded-full mr-2 lg:m-0 xl:m-0 md:m-0 z-50'>SIGN IN</button>
         </div>
     </motion.div>
   )

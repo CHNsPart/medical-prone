@@ -92,11 +92,13 @@ body {
 
 @font-face {
   font-family: 'LemonMilk';
-  src: url('../public/fonts/LEMONMILK-Bold.otf') format('truetype');
+  src: url('../public/fonts/LEMONMILK-Bold.otf') format('opentype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'SpaceGrotest';
   src: url('../public/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-display: swap;
 }
 
 h1{

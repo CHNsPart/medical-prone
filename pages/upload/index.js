@@ -5,6 +5,7 @@ import Lottie from "lottie-react";
 import upload from "../../public/upload.json"
 import complete from "../../public/complete.json"
 import arrow from "../../public/rightArrow.svg"
+import Head from "next/head";
 import dynamic from 'next/dynamic'
 import { CiImageOn } from "react-icons/ci"
 import NavBar from "../components/NavBar";
@@ -20,7 +21,7 @@ const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
 
 
 
-const index = () => {
+export default function index() {
   const fileInputField = useRef(null);
   // const [formData, setFormData] = useState(new FormData());
   const [files, setFiles] = useState(null);
@@ -114,7 +115,9 @@ const index = () => {
   }
 
   return (
-    <div className="h-screen w-full flex flex-col justify-center items-center">
+    <div 
+      className="h-screen w-full flex flex-col justify-center items-center"
+    >
       <AnimatedCursor 
         innerSize={8}
         outerSize={20}
@@ -162,6 +165,15 @@ const index = () => {
         ) 
         : 
         (
+          <>
+          <Head>
+            <title>Medical Prone</title>
+            <meta name="description" content="Medical Prone AI" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta name="description" content="Author: Touhidul Islam Chayan,
+    Medical Prone is a Artificial Intelligence or Machine Learning app for medical purpose. This app helps doctors to analyze and predict diseases from radiology or x-ray image input to an output where every possible disease from 0 to 100%"/>
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
           <motion.div 
             initial={{ opacity:100, y:0 }}
             animate={{ opacity:100, y:0 }}
@@ -298,6 +310,7 @@ const index = () => {
             >
               <a 
                 type='submit'
+                href="#"
                 onClick={handleSubmitButton}
                 className='flex flex-row justify-center 
                           items-center border-2 border-white
@@ -348,10 +361,9 @@ const index = () => {
             }
             </motion.div>
           </motion.div>
+          </>
         ) 
       }
     </div>
   )
 }
-
-export default index

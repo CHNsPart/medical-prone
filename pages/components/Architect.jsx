@@ -25,7 +25,7 @@ const Architect = () => {
       <div className='col-span-4 w-full grid grid-col-2 grid-rows-4 justify-center items-center pb-5'>
         <Lottie
           initial={{ opacity:0, y:200 }}
-          whileInView={{ opacity:100, y:0 }}
+          whileinview={{ opacity:100, y:0 }}
           transition={{
             duration: 0.6,
             delay: 0.5,
