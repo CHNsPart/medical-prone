@@ -3,6 +3,7 @@ import Image from 'next/image'
 import arrow from '../../public/rightArrow.svg'
 import { useMediaQuery } from 'react-responsive'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function signup() {
 
@@ -75,9 +76,10 @@ export default function signup() {
               delay: 0.8,
               transition: "easeIn",
             }} 
-            className='mt-2 text-center cursor-auto text-gray-300'
           >
+             <Link  className='mt-0 text-center hover:text-gray-500 text-gray-300 w-full text-xs' href="/auth/signin">
               Already got an account ?
+             </Link>
           </motion.p>
         </form>
       </div>

@@ -6,7 +6,7 @@ import upload from "../../public/upload.json"
 import complete from "../../public/complete.json"
 import arrow from "../../public/rightArrow.svg"
 import Head from "next/head";
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import { CiImageOn } from "react-icons/ci"
 import NavBar from "../components/NavBar";
 import { RxCross2 } from "react-icons/rx"
@@ -14,11 +14,30 @@ import { AiOutlineLoading } from "react-icons/ai"
 import { useMediaQuery } from 'react-responsive'
 import axios from "axios";
 import FormData from 'form-data'
-const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
-  ssr: false
-});
+// const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
+//   ssr: false
+// });
 
-
+const dummy = {
+  "Atelectasis": 0.3185494840145111,
+  "Cardiomegaly": 0.08868326246738434,
+  "Consolidation": 0.2665356695652008,
+  "Edema": 0.5353983640670776,
+  "Effusion": 0.11917716264724731,
+  "Emphysema": 0.5018904209136963,
+  "Enlarged Cardiomediastinum": 0.07020698487758636,
+  "Fibrosis": 0.014410634525120258,
+  "Fracture": 0.36686909198760986,
+  "Hernia": 0.0063102091662585735,
+  "Infiltration": 0.2333463579416275,
+  "Lung Lesion": 0.025401389226317406,
+  "Lung Opacity": 0.6239341497421265,
+  "Mass": 0.046956442296504974,
+  "Nodule": 0.07323925197124481,
+  "Pleural_Thickening": 0.008107014000415802,
+  "Pneumonia": 0.5568587779998779,
+  "Pneumothorax": 0.024134185165166855
+}
 
 
 export default function index() {
@@ -58,6 +77,11 @@ export default function index() {
     //     setFiles(reader.result)
     //   };
     // }
+  }
+
+  const sortResult = (obj) => {
+    const sortable = Object.entries(obj).sort(([,a],[,b]) => b-a);
+    return sortable;
   }
   
   const removeFile = () => {
@@ -123,33 +147,6 @@ export default function index() {
     <div 
       className="h-screen w-full flex flex-col justify-center items-center"
     >
-      <AnimatedCursor 
-        innerSize={8}
-        outerSize={20}
-        color='0,245,110'
-        outerAlpha={0.2}
-        innerScale={0.7}
-        outerScale={5}
-        trailingSpeed={8}
-        // outerStyle={{
-        //   border: '0px solid rgba(0,245,110, .2)',
-        //   borderRadius: '50%',
-        // }}
-        // clickables={[
-        //   'a',
-        //   'input[type="text"]',
-        //   'input[type="email"]',
-        //   'input[type="number"]',
-        //   'input[type="submit"]',
-        //   'input[type="image"]',
-        //   'label[for]',
-        //   'select',
-        //   'textarea',
-        //   'img',
-        //   'button',
-        //   '.link'
-        // ]}
-      />
       <div className='flex justify-center top-10 absolute w-full h-fit px-40 pb-40 z-50'>
         <NavBar />
       </div>
@@ -164,11 +161,20 @@ export default function index() {
               transition: "easeInOut",
               //ease: [0, 0.71, 0.2, 1.01]
             }}
-            className="grid bg-[#2A2A2A] rounded-xl p-5 grid-cols-2 justify-center items-center h-fit"
+            className="grid bg-[#2A2A2A] rounded-xl p-5 
+                       grid-cols-4 grid-flow-row grid-rows-2 
+                       justify-center items-center max-h-96 
+                       w-2/3"
           >
+
+
+
+
             {/* Left Pred */}
+            {/* Top Match */}
             <motion.div 
-              className="justify-self-center"
+              className="justify-self-center col-span-1 bg-back/30 
+                        p-5 rounded-xl"
               initial={{ opacity:0, x:-100 }}
               animate={{ opacity:100, x:0 }}
               transition={{
@@ -178,27 +184,87 @@ export default function index() {
                 //ease: [0, 0.71, 0.2, 1.01]
               }}
             >
-              <p className="w-40 h-40 bg-[#1A1A1A] rounded-xl 
-                        justify-self-center flex justify-center 
-                        items-center"
+              <p className="rounded-xl 
+                            justify-self-center row-span-1 flex flex-col
+                            justify-center items-center gap-2"
               >
-                {JSON.stringify(result.data.data)}
+                <span className="text-brandGreen text-xs">
+                  Top Match
+                </span>
+                {((sortResult(result.data.data)[0][1])*100).toFixed(2)} %
+                <span className="text-brandGreen bg-back
+                                 text-xs rounded-full font-bold p-2"
+                >
+                  {sortResult(result.data.data)[0][0]}
+                </span>
               </p>
-              {/* { 
-                (result.data.data).map((item)=>{
-                  <p key={item} className="w-40 h-40 bg-[#1A1A1A] rounded-xl 
-                            justify-self-center flex justify-center 
-                            items-center"
-                  >
-                    {item}
-                  </p>
-                })
-              } */}
             </motion.div>
+           
+            {/* Second Match */}
+            <motion.div 
+              className="justify-self-center col-span-1 bg-back/20 
+                        p-5 rounded-xl"
+              initial={{ opacity:0, x:-100 }}
+              animate={{ opacity:100, x:0 }}
+              transition={{
+                duration: 1,
+                delay: 0.6,
+                transition: "easeInOut",
+                //ease: [0, 0.71, 0.2, 1.01]
+              }}
+            >
+              <p className="rounded-xl 
+                        justify-self-center flex flex-col
+                            justify-center items-center gap-2"
+              >
+                <span className="text-brandGreen text-xs">
+                  Second Match
+                </span>
+                {((sortResult(result.data.data)[1][1])*100).toFixed(2)} %
+                <span className="text-brandGreen bg-back
+                                 text-xs rounded-full font-bold p-2"
+                >
+                  {sortResult(result.data.data)[1][0]}
+                </span>
+              </p>
+            </motion.div>
+            {/* Least Match */}
+            <motion.div 
+              className="justify-self-center col-span-1 row-span-1"
+              initial={{ opacity:0, x:-100 }}
+              animate={{ opacity:100, x:0 }}
+              transition={{
+                duration: 1,
+                delay: 0.6,
+                transition: "easeInOut",
+                //ease: [0, 0.71, 0.2, 1.01]
+              }}
+            >
+              <p className="rounded-xl 
+                        justify-self-center flex flex-col
+                            justify-center items-center gap-2"
+              >
+                <span className="text-brandGreen text-xs">
+                  Least Match
+                </span>
+                {((sortResult(result.data.data)[17][1])*100).toFixed(2)} %
+                <span className="text-white bg-red-500
+                                 text-xs rounded-full font-bold p-2"
+                >
+                  {sortResult(result.data.data)[17][0]}
+                </span>
+              </p>
+            </motion.div>
+
+
+
+
+
             {/* Right Pred */}
             <motion.div 
-              className="w-40 h-40 bg-[#1A1A1A] rounded-xl 
-                        justify-self-center flex justify-center items-center"
+              className="w-40 h-40 bg-[#1A1A1A] col-span-1 
+                         row-span-1 rounded-xl justify-self-center 
+                         flex justify-center items-center"
               initial={{ opacity:0, x:100 }}
               animate={{ opacity:100, x:0 }}
               transition={{
@@ -216,6 +282,27 @@ export default function index() {
                 width={200} alt="result image"
               />
             </motion.div>
+
+            {/* Chart */}
+             <motion.div 
+              className="justify-self-center col-span-4 row-span-1"
+              initial={{ opacity:0, x:-100 }}
+              animate={{ opacity:100, x:0 }}
+              transition={{
+                duration: 1,
+                delay: 0.6,
+                transition: "easeInOut",
+                //ease: [0, 0.71, 0.2, 1.01]
+              }}
+            >
+              <p className="rounded-xl 
+                        justify-self-center flex justify-center 
+                        items-center"
+              >
+                
+              </p>
+            </motion.div>
+
           </motion.div>
         ) 
         : 

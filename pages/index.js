@@ -2,20 +2,20 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+// import styles from '@/styles/Home.module.css'
 import NavBar from './components/NavBar'
 import Architect from './components/Architect'
 import Blob from './components/Blob'
 import arrow from "../public/rightArrow.svg"
 import astra from "../public/astra.svg"
-const inter = Inter({ subsets: ['latin'] })
-import dynamic from 'next/dynamic'
+// const inter = Inter({ subsets: ['latin'] })
+// import dynamic from 'next/dynamic'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import Router from 'next/router'
 
-const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
-  ssr: false
-});
+// const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
+//   ssr: false
+// });
 
 export default function Home() {
 
@@ -67,33 +67,6 @@ export default function Home() {
     Medical Prone is a Artificial Intelligence or Machine Learning app for medical purpose. This app helps doctors to analyze and predict diseases from radiology or x-ray image input to an output where every possible disease from 0 to 100%"/>
             <link rel="icon" href="/favicon.ico" />
           </Head>
-          <AnimatedCursor 
-            innerSize={8}
-            outerSize={20}
-            color='0,245,110'
-            outerAlpha={0.2}
-            innerScale={0.7}
-            outerScale={5}
-            trailingSpeed={8}
-            // outerStyle={{
-            //   border: '0px solid rgba(0,245,110, .2)',
-            //   borderRadius: '50%',
-            // }}
-            // clickables={[
-            //   'a',
-            //   'input[type="text"]',
-            //   'input[type="email"]',
-            //   'input[type="number"]',
-            //   'input[type="submit"]',
-            //   'input[type="image"]',
-            //   'label[for]',
-            //   'select',
-            //   'textarea',
-            //   'button',
-            //   'img',
-            //   '.link'
-            // ]}
-          />
           <motion.video
             initial={{ opacity: 0, scale: 0.5, borderRadius: "500px" }}
             animate={{ opacity: 1, scale: 1, borderRadius: 0 }}

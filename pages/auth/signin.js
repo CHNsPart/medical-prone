@@ -3,13 +3,14 @@ import Image from 'next/image'
 import arrow from '../../public/rightArrow.svg'
 import { motion } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
+import Link from 'next/link'
 
 export default function signin() {
   
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1024px)'
   })
-  const inputStyle = "w-full my-2 py-2 px-4 h-12 rounded-lg border-gray-300 focus:outline-none focus:border-2 focus:border-brandGreen"
+  const inputStyle = "w-full my-2 py-2 px-4 h-12 rounded-lg border-gray-300 focus:outline-none cursor-none focus:border-2 focus:border-brandGreen"
   const desktopAnimation = {
     
   }
@@ -27,7 +28,9 @@ export default function signin() {
           <input type="password" name="password" placeholder='password'
             className={inputStyle}
           />
-          <p className='italic text-gray-300 p-2 text-sm text-right cursor-pointer hover:text-gray-500'>Forgot password ?</p>
+          <Link className='italic text-gray-300 p-2 text-xs text-right hover:text-gray-500 w-full' href="#">
+            <p>Forgot password ?</p>
+          </Link>
           <motion.div 
             className='flex flex-row justify-center items-center w-full mt-10'
             initial={{ opacity: 0, y: 80 }}
@@ -63,6 +66,22 @@ export default function signin() {
             <div className="liquid"></div>
             </a>
           </motion.div>
+          <motion.p
+            initial={{ opacity:0, y:80 }}
+            animate={{ opacity:100, y:15 }}
+            transition={{
+              type: "spring", 
+              stiffness: 50,
+              duration: 0.9,
+              delay: 0.8,
+              transition: "easeIn",
+            }} 
+            className='mt-2 text-center text-gray-300 '
+          >
+             <Link  className='mt-0 text-center hover:text-gray-500 text-gray-300 w-full text-xs' href="/auth/signup">
+              Create a new one ?
+             </Link>
+          </motion.p>
         </form>
       </div>
 
@@ -113,7 +132,7 @@ export default function signin() {
             transition: "easeInOut",
             //ease: [0, 0.71, 0.2, 1.01]
           }}
-          src="https://chnspart.com/JFTL/signinabstract.mp4"
+          src="https://chnspart.com/JFTL/abstract3d.mp4"
           controls={false}
           muted={true}
           autoPlay={true}
