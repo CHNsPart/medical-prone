@@ -14,6 +14,8 @@ import { AiOutlineLoading } from "react-icons/ai"
 import { useMediaQuery } from 'react-responsive'
 import axios from "axios";
 import FormData from 'form-data'
+import okay from "../../public/input.jpg"
+import { BarChart } from "../components/BarChart";
 // const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
 //   ssr: false
 // });
@@ -161,10 +163,12 @@ export default function index() {
               transition: "easeInOut",
               //ease: [0, 0.71, 0.2, 1.01]
             }}
-            className="grid bg-[#2A2A2A] rounded-xl p-5 
-                       grid-cols-4 grid-flow-row grid-rows-2 
+            className="grid mt-52 xl:m-0 lg:m-0 rounded-xl p-5 
+                       grid-cols-2 gap-10 grid-rows-3
+                       xl:grid-cols-4 xl:grid-rows-4 xl:grid-flow-row
+                       lg:grid-cols-4 lg:grid-rows-4 lg:grid-flow-row
                        justify-center items-center max-h-96 
-                       w-2/3"
+                       w-3/4 lg:w-2/3 xl:w-2/3"
           >
 
 
@@ -173,15 +177,14 @@ export default function index() {
             {/* Left Pred */}
             {/* Top Match */}
             <motion.div 
-              className="justify-self-center col-span-1 bg-back/30 
-                        p-5 rounded-xl"
+              className="justify-self-center col-span-1 bg-[#2A2A2A]/30 
+                        p-5 w-full rounded-xl mb-20 lg:m-0 xl:m-0"
               initial={{ opacity:0, x:-100 }}
               animate={{ opacity:100, x:0 }}
               transition={{
                 duration: 1,
                 delay: 0.6,
                 transition: "easeInOut",
-                //ease: [0, 0.71, 0.2, 1.01]
               }}
             >
               <p className="rounded-xl 
@@ -202,8 +205,8 @@ export default function index() {
            
             {/* Second Match */}
             <motion.div 
-              className="justify-self-center col-span-1 bg-back/20 
-                        p-5 rounded-xl"
+              className="justify-self-center col-span-1 bg-[#2A2A2A]/20 
+                        p-5 w-full rounded-xl mb-20 lg:m-0 xl:m-0"
               initial={{ opacity:0, x:-100 }}
               animate={{ opacity:100, x:0 }}
               transition={{
@@ -230,7 +233,8 @@ export default function index() {
             </motion.div>
             {/* Least Match */}
             <motion.div 
-              className="justify-self-center col-span-1 row-span-1"
+              className="justify-self-center col-span-1 row-span-1
+                         p-5 w-full"
               initial={{ opacity:0, x:-100 }}
               animate={{ opacity:100, x:0 }}
               transition={{
@@ -242,7 +246,7 @@ export default function index() {
             >
               <p className="rounded-xl 
                         justify-self-center flex flex-col
-                            justify-center items-center gap-2"
+                        justify-center items-center gap-2"
               >
                 <span className="text-brandGreen text-xs">
                   Least Match
@@ -262,7 +266,8 @@ export default function index() {
 
             {/* Right Pred */}
             <motion.div 
-              className="w-40 h-40 bg-[#1A1A1A] col-span-1 
+              className="w-28 h-28 lg:w-40 lg:h-40 xl:w-40 xl:h-40
+                       bg-[#2A2A2A] col-span-1 
                          row-span-1 rounded-xl justify-self-center 
                          flex justify-center items-center"
               initial={{ opacity:0, x:100 }}
@@ -274,10 +279,11 @@ export default function index() {
                 //ease: [0, 0.71, 0.2, 1.01]
               }} 
             >
-              <img 
+              <Image 
                 className="p-2 rounded-2xl bg-cover"  
                 height={200} 
-                src={thumbnail==="" ? result.data.file_url : thumbnail} 
+                // src={thumbnail==="" ? result.data.file_url : thumbnail} 
+                src={okay} 
                 loading="lazy" 
                 width={200} alt="result image"
               />
@@ -285,7 +291,10 @@ export default function index() {
 
             {/* Chart */}
              <motion.div 
-              className="justify-self-center col-span-4 row-span-1"
+              className="justify-self-center col-span-2 mt-16 
+                         w-full row-span-2 lg:mt-96 xl:mt-[38rem] md:mt-96
+                         xl:col-span-4 xl:row-span-1 
+                         lg:col-span-4 lg:row-span-1"
               initial={{ opacity:0, x:-100 }}
               animate={{ opacity:100, x:0 }}
               transition={{
@@ -299,7 +308,7 @@ export default function index() {
                         justify-self-center flex justify-center 
                         items-center"
               >
-                
+                <BarChart chartData={sortResult(result.data.data)} />
               </p>
             </motion.div>
 
