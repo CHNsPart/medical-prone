@@ -12,6 +12,7 @@ import astra from "../public/astra.svg"
 // import dynamic from 'next/dynamic'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import Router from 'next/router'
+import Help from './components/Help'
 
 // const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
 //   ssr: false
@@ -33,7 +34,7 @@ export default function Home() {
   }
 
   useEffect(()=>{
-    setLoading(true)
+    setLoading(false)
     setTimeout(()=>{
       setLoading(false)
     },5000)
@@ -133,7 +134,7 @@ export default function Home() {
 
             </div>
             {/* bottom section */}
-            <div className="grid grid-cols-1 lg:grid-cols-6 xl:grid-cols-6 md:grid-cols-6 gap-20 lg:mx-40 col-span-2 h-fit bg-back leading-normal sticky top-72">
+            <div className="grid grid-cols-1 lg:grid-cols-6 xl:grid-cols-6 md:grid-cols-6 gap-20 lg:px-40 col-span-2 h-fit bg-back leading-normal sticky top-72">
             {/* bottom left */}
               <div className="col-span-3 grid justify-start items-start min-h-[33vh] w-full p-10 xl:px-5 lg:px-5">
                 <motion.h1
@@ -223,9 +224,8 @@ export default function Home() {
               </div>
             </div>
           </main>
-          <section>
             <Architect/>
-          </section>
+            {/* <Help/> */}
         </>
       ) 
     }
