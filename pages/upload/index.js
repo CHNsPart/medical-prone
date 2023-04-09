@@ -213,7 +213,6 @@ export default function index() {
                 duration: 1,
                 delay: 0.6,
                 transition: "easeInOut",
-                //ease: [0, 0.71, 0.2, 1.01]
               }}
             >
               <p className="rounded-xl 
@@ -241,7 +240,6 @@ export default function index() {
                 duration: 1,
                 delay: 0.6,
                 transition: "easeInOut",
-                //ease: [0, 0.71, 0.2, 1.01]
               }}
             >
               <p className="rounded-xl 
@@ -261,13 +259,10 @@ export default function index() {
             </motion.div>
 
 
-
-
-
             {/* Right Pred */}
             <motion.div 
               className="w-28 h-28 lg:w-40 lg:h-40 xl:w-40 xl:h-40
-                       bg-[#2A2A2A] col-span-1 
+                       bg-[#2A2A2A] col-span-1 object-cover
                          row-span-1 rounded-xl justify-self-center 
                          flex justify-center items-center"
               initial={{ opacity:0, x:100 }}
@@ -276,7 +271,6 @@ export default function index() {
                 duration: 1,
                 delay: 0.6,
                 transition: "easeInOut",
-                //ease: [0, 0.71, 0.2, 1.01]
               }} 
             >
               <Image 
@@ -301,7 +295,6 @@ export default function index() {
                 duration: 1,
                 delay: 0.6,
                 transition: "easeInOut",
-                //ease: [0, 0.71, 0.2, 1.01]
               }}
             >
               <p className="rounded-xl 
@@ -337,7 +330,7 @@ export default function index() {
               //ease: [0, 0.71, 0.2, 1.01]
             }}
             className="h-fit w-full flex flex-col justify-center items-center gap-5 p-5 relative">
-            <div className='h-fit w-full flex flex-col xl:flex-row lg:flex-row md:flex-row justify-center items-center gap-5 px-5'>
+            <div className='h-fit w-full flex flex-col xl:flex-row lg:flex-row md:flex-row justify-center items-center gap-5 px-5 overflow-hidden'>
                 <form className="h-auto" action="">
                   <motion.div
                     initial={{ opacity:0, x:-100 }}
@@ -361,7 +354,6 @@ export default function index() {
                           duration: 1,
                           delay: 1,
                           transition: "easeInOut",
-                          //ease: [0, 0.71, 0.2, 1.01]
                         }}   
                         className='row-span-4 justify-self-center absolute opacity-20'
                         animationData={JSON.parse(JSON.stringify(upload))} 
@@ -381,7 +373,6 @@ export default function index() {
                     duration: 1,
                     delay: 0.6,
                     transition: "easeInOut",
-                    //ease: [0, 0.71, 0.2, 1.01]
                   }} 
                 >
                   { files ? 
@@ -394,7 +385,7 @@ export default function index() {
                           delay: 2,
                           transition: "easeInOut",
                         }}
-                        className="h-10 w-10 bg-back absolute opacity-50 rounded-full hover:opacity-100 flex justify-center items-center text-brandGreen/20 hover:text-brandGreen transition-all duration-300 z-40"
+                        className="h-10 w-10 bg-back absolute opacity-50 rounded-full hover:opacity-100 flex justify-center items-center overflow-hidden text-brandGreen/20 hover:text-brandGreen transition-all duration-300 z-40"
                         onClick={removeFile}
                       >
                         <RxCross2 size={isDesktopOrLaptop ? 30 : 20} className="" />

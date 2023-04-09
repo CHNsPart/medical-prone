@@ -78,7 +78,7 @@ export default function Home() {
               //ease: [0, 0.71, 0.2, 1.01]
             }}
             className="w-full h-full object-cover bg-no-repeat bg-center bg-cover max-h-[66.5vh] absolute -z-20 m-0 p-0"
-            src="https://chnspart.com/JFTL/abstract3d.mp4"
+            src="https://medicalprone.com/assets/abstract3d.mp4"
             controls={false}
             muted={true}
             autoPlay={true}
@@ -217,7 +217,7 @@ export default function Home() {
                     muted={true}
                     autoPlay={true}
                     loop={true}
-                    src="https://chnspart.com/JFTL/abstract.mp4"
+                    src="https://medicalprone.com/assets/abstract.mp4"
                   />
                   <Image className='absolute xl:h-20 lg:h-15 md:h-10 h-10 animate-fadeup hover:animate-spin' src={astra} height={70} width={70} alt='abstract_mp'/>
                 </div>

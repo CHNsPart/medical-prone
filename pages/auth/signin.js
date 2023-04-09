@@ -3,6 +3,7 @@ import Image from 'next/image'
 import arrow from '../../public/rightArrow.svg'
 import { motion } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
+import { AiFillHome } from 'react-icons/ai'
 import Link from 'next/link'
 
 export default function signin() {
@@ -17,6 +18,13 @@ export default function signin() {
 
   return (
     <div className='h-screen w-full grid grid-cols-1 mt-10 xl:m-0 lg:m-0 xl:grid-cols-2 lg:grid-cols-2 justify-center items-center'>
+      <Link href={'/'} className='w-auto absolute top-[2%] right-[88%] lg:top-[5%] lg:right-[95%] text-brandGreen bg-slate-800 hover:bg-brandGreen hover:text-white z-10 p-2 rounded-full' 
+      >
+        <AiFillHome 
+          size={20} 
+          className='relative z-20'
+        />
+      </Link>
       {/* Form Left */}
       <div className='h-full w-full flex flex-col justify-center items-center'>
         <h1>Sign-in</h1>
@@ -45,7 +53,7 @@ export default function signin() {
         >
             <a 
             type='button'
-            onClick={() => Router.back()}
+            onClick={()=>alert("Authentication is in testing, you may proceed without any account.")}
             className='flex flex-row justify-center 
                         items-center border-2 border-white
                         rounded-full text-center
@@ -132,7 +140,7 @@ export default function signin() {
             transition: "easeInOut",
             //ease: [0, 0.71, 0.2, 1.01]
           }}
-          src="https://chnspart.com/JFTL/abstract3d.mp4"
+          src="https://medicalprone.com/assets/abstract3d.mp4"
           controls={false}
           muted={true}
           autoPlay={true}
