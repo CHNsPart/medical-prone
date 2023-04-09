@@ -12,6 +12,9 @@ const NavBar = () => {
   const handleHome = () => {
     Router.push("/")
   }
+  const handleAbout = () => {
+    Router.push("/about")
+  }
   return (
     <motion.div 
       initial={{ opacity: 0, y: -80 }}
@@ -31,7 +34,7 @@ const NavBar = () => {
                     xl:gap-10 lg:gap-10 md:gap-10 text-sm xl:text-base lg:text-base md:text-base'
         >
             <button onClick={handleHome}>HOME</button>
-            <button>ABOUT US</button>
+            <button onClick={handleAbout}>ABOUT US</button>
             <button onClick={handleAuth} className='bg-gradient-to-t from-brandGreen to-darkBrandGreen py-2 px-4 rounded-full mr-2 lg:m-0 xl:m-0 md:m-0 z-50'>SIGN IN</button>
         </div>
     </motion.div>

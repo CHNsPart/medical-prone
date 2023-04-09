@@ -68,7 +68,7 @@ const Architect = () => {
         
       {/* Left */}
         <motion.div
-          className='h-auto w-1/2 grid grid-col-1 justify-end 
+          className='h-auto w-1/2 grid grid-col-1 justify-end mb-28
                     items-center text-back justify-self-end rounded-xl 
                     bg-clip-padding object-contain px-2 xl:px-2 lg:px-0'
         > 
@@ -78,7 +78,7 @@ const Architect = () => {
         
       {/* Center */}
         <motion.div
-          className='col-span-2 lg:col-span-2 xl:col-span-2 w-full xl:w-3/4 lg:w-1/2 justify-self-center xl:justify-self-center'
+          className='col-span-2 lg:col-span-2 xl:col-span-2 w-full xl:w-3/4 lg:w-1/2 justify-self-center xl:justify-self-center mb-28'
           style={{ opacity: scrollYProgress}}
           initial={{ opacity:0, y:200 }}
           whileInView={{ opacity:100, y:0 }}
@@ -95,7 +95,7 @@ const Architect = () => {
 
       {/* Right */}
         <motion.div
-          className='h-auto w-3/4 justify-end
+          className='h-auto w-3/4 justify-end mb-28
                     items-center text-white justify-self-start rounded-xl 
                     bg-clip-padding object-contain' 
         > 
@@ -142,6 +142,9 @@ const Architect = () => {
           ) 
         }
         </motion.div>
+      <footer className='bg-brandGreen absolute w-full py-5 bottom-0 text-center text-white font-bold flex justify-center items-center'>
+        <p className='bg-back p-2 w-fit px-10 rounded-full'>Touhidul Islam Chayan &#169; 2023</p>
+      </footer>
       </motion.div>
     </>
   )

@@ -5,9 +5,9 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -88,32 +88,33 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  cursor: none;
+  /* cursor: none; */
 }
 
 @font-face {
-  font-family: 'LemonMilk';
-  src: url('../public/fonts/LEMONMILK-Bold.otf') format('opentype');
+  font-family: "LemonMilk";
+  src: url("../public/fonts/LEMONMILK-Bold.otf") format("opentype");
   font-display: swap;
 }
 @font-face {
-  font-family: 'SpaceGrotest';
-  src: url('../public/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-family: "SpaceGrotest";
+  src: url("../public/fonts/SpaceGrotesk-VariableFont_wght.ttf")
+    format("truetype");
   font-display: swap;
 }
 
-h1{
-  font-family: 'LemonMilk';
+h1 {
+  font-family: "LemonMilk";
   font-weight: bold;
   font-size: 2.5rem;
-  color: #00F56E;
+  color: #00f56e;
   text-align: center;
   margin: 0 0;
 }
 
 body {
-  font-family: 'SpaceGrotest';
-  background-color: #1A1A1A;
+  font-family: "SpaceGrotest";
+  background-color: #1a1a1a;
 }
 
 /* width */
@@ -124,18 +125,18 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #1A1A1A; 
+  background: #1a1a1a;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #00F56E; 
+  background: #00f56e;
   border-radius: 50px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #007D47; 
+  background: #007d47;
 }
 
 a {
@@ -149,7 +150,7 @@ a {
   left: 0;
   right: 0;
   height: 10px;
-  background: linear-gradient(to right, #00F56E, #00c06d, #00a35c , #007D47);
+  background: linear-gradient(to right, #00f56e, #00c06d, #00a35c, #007d47);
   transform-origin: 0%;
 }
 
@@ -158,14 +159,14 @@ a {
     width: 0px;
   }
   ::-webkit-scrollbar-track {
-    background: #1A1A1A; 
+    background: #1a1a1a;
   }
   ::-webkit-scrollbar-thumb {
-    background: #00F56E; 
+    background: #00f56e;
     border-radius: 300%;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #007D47; 
+    background: #007d47;
   }
 }
 @media only screen and (max-width: 580px) {
@@ -175,43 +176,41 @@ a {
     right: -60%;
     width: 300px;
     height: 300px;
-    background: linear-gradient(to right, #00F56E, #00c06d, #00a35c , #007D47);
-    box-shadow: inset 0 0 50px rgba(26, 26, 26, .5);
-    transition: .5s;
+    background: linear-gradient(to right, #00f56e, #00c06d, #00a35c, #007d47);
+    box-shadow: inset 0 0 50px rgba(26, 26, 26, 0.5);
+    transition: 0.5s;
   }
   a span {
-  position: relative;
-  color: #fff;
-  font-family: Arial;
-  z-index: 1;
+    position: relative;
+    color: #fff;
+    font-family: Arial;
+    z-index: 1;
   }
   a .liquid::after,
   a .liquid::before {
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     position: absolute;
     top: -50px;
     left: 50%;
     transform: translate(-50%, -75%);
-    background: #1A1A1A;
+    background: #1a1a1a;
   }
 
   a .liquid::before {
-    
     border-radius: 45%;
     background: rgba(26, 26, 26, 1);
     animation: animate 5s linear infinite;
   }
 
   a .liquid::after {
-    
     border-radius: 40%;
-    background: rgba(26, 26, 26, .5);
+    background: rgba(26, 26, 26, 0.5);
     animation: animate 10s linear infinite;
   }
 
-  a:hover .liquid{
+  a:hover .liquid {
     top: 0px;
   }
 }
@@ -241,38 +240,36 @@ a .liquid {
   right: 20;
   width: 900px;
   height: 900px;
-  background: linear-gradient(to right, #00F56E, #00c06d, #00a35c , #007D47);
-  box-shadow: inset 0 0 50px rgba(26, 26, 26, .5);
-  transition: .5s;
+  background: linear-gradient(to right, #00f56e, #00c06d, #00a35c, #007d47);
+  box-shadow: inset 0 0 50px rgba(26, 26, 26, 0.5);
+  transition: 0.5s;
 }
 
 a .liquid::after,
 a .liquid::before {
-  content: '';
+  content: "";
   width: 100%;
   height: 100%;
   position: absolute;
   top: -50px;
   left: 50%;
   transform: translate(-50%, -75%);
-  background: #1A1A1A;
+  background: #1a1a1a;
 }
 
 a .liquid::before {
-  
   border-radius: 45%;
   background: rgba(26, 26, 26, 1);
   animation: animate 5s linear infinite;
 }
 
 a .liquid::after {
-  
   border-radius: 40%;
-  background: rgba(26, 26, 26, .5);
+  background: rgba(26, 26, 26, 0.5);
   animation: animate 10s linear infinite;
 }
 
-a:hover .liquid{
+a:hover .liquid {
   top: -100px;
 }
 
@@ -293,87 +290,87 @@ a:hover .liquid{
 
 /* Loading Animation */
 .wrapper {
-	 position: absolute;
-	 top: 0;
-	 left: 0;
-	 width: 100%;
-	 height: 100%;
-	 filter: url("#filter");
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: url("#filter");
 }
- .ball {
-	 width: 60px;
-	 height: 60px;
-	 position: absolute;
-	 top: calc(50% - 30px);
-	 left: calc(50% - 30px);
+.ball {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
 }
- .ball:before {
-	 background: #00F56E;
-	 border-radius: 100%;
-	 position: absolute;
-	 top: 0;
-	 left: 0;
-	 width: 100%;
-	 height: 100%;
-	 content: "";
+.ball:before {
+  background: #00f56e;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
 }
- .ball:nth-child(1) {
-	 transform: translate(-66px);
-	 animation: x-axis-lateral 2s infinite alternate ease-in-out;
+.ball:nth-child(1) {
+  transform: translate(-66px);
+  animation: x-axis-lateral 2s infinite alternate ease-in-out;
 }
- .ball:nth-child(1):before {
-	 animation: y-axis-lateral 1s infinite 0.1s alternate ease-in-out;
+.ball:nth-child(1):before {
+  animation: y-axis-lateral 1s infinite 0.1s alternate ease-in-out;
 }
- .ball:nth-child(2) {
-	 animation: x-axis 2s infinite alternate ease-in-out;
+.ball:nth-child(2) {
+  animation: x-axis 2s infinite alternate ease-in-out;
 }
- .ball:nth-child(2):before {
-	 animation: y-axis 1s infinite 0.5s alternate ease-in-out;
+.ball:nth-child(2):before {
+  animation: y-axis 1s infinite 0.5s alternate ease-in-out;
 }
- .ball:nth-child(3) {
-	 transform: translate(66px, 78px);
-	 animation: x-axis-lateral 2s infinite alternate ease;
+.ball:nth-child(3) {
+  transform: translate(66px, 78px);
+  animation: x-axis-lateral 2s infinite alternate ease;
 }
- .ball:nth-child(3):before {
-	 animation: y-axis-lateral 1s infinite 0.4s alternate ease-in-out;
+.ball:nth-child(3):before {
+  animation: y-axis-lateral 1s infinite 0.4s alternate ease-in-out;
 }
- @keyframes x-axis {
-	 0% {
-		 transform: translate(-96px);
-	}
-	 100% {
-		 transform: translate(96px);
-	}
+@keyframes x-axis {
+  0% {
+    transform: translate(-96px);
+  }
+  100% {
+    transform: translate(96px);
+  }
 }
- @keyframes y-axis {
-	 0% {
-		 transform: translateY(42px);
-	}
+@keyframes y-axis {
+  0% {
+    transform: translateY(42px);
+  }
   50% {
-		 background: #008f51;
-	}
-	 100% {
-		 transform: translateY(-66px) scale(0.8);
-		 background: #007D47;
-	}
+    background: #008f51;
+  }
+  100% {
+    transform: translateY(-66px) scale(0.8);
+    background: #007d47;
+  }
 }
- @keyframes x-axis-lateral {
-	 0% {
-		 transform: translate(-36px);
-	}
-	 100% {
-		 transform: translate(36px);
-	}
+@keyframes x-axis-lateral {
+  0% {
+    transform: translate(-36px);
+  }
+  100% {
+    transform: translate(36px);
+  }
 }
- @keyframes y-axis-lateral {
-	 0% {
-		 transform: translateY(12px);
-	}
-	 50% {
-		 background: #00c157;
-	}
-	 100% {
-		 transform: translateY(-60px);
-		 background: #00F56E;
-	}
+@keyframes y-axis-lateral {
+  0% {
+    transform: translateY(12px);
+  }
+  50% {
+    background: #00c157;
+  }
+  100% {
+    transform: translateY(-60px);
+    background: #00f56e;
+  }
 }
