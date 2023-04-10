@@ -229,17 +229,44 @@ export default function Home() {
               </div>
             </div>
           </main>
-          <div className='h-[100vh] mt-96 md:mt-56 w-full grid 
+          <div className='h-[100vh] md:h-[120vh] lg:h-[80vh] xl:h-[100vh] mt-96 md:mt-56 lg:mt-96 xl:mt-0 w-full grid 
                           justify-center items-center
                           grid-cols-2 lg:grid-cols-4 px-40'>
 
             <div className='grid items-center justify-center
                             w-full h-auto col-span-2'
             >
-              <h1 className='text-center lg:text-left w-full mt-20 md:mt-0 mb-10 lg:mb-0'>A helping tool for the { isDesktopOrLaptop && <br/> } Doctors</h1>
-              <p className='text-justify w-full lg:w-2/3'>With our state-of-the-art AI technology, MedicalProne makes predicting chest diseases from X-ray images a breeze for doctors everywhere. Say goodbye to guesswork and hello to accurate diagnoses with just a few clicks. Let MedicalProne help you focus on what really matters - providing the best possible care for your patients. Try it out now and see the difference for yourself!</p>
+              <motion.h1 
+                initial={{ opacity: 0, x:100 }}
+                whileInView={{ opacity: 1, x:0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.6,
+                  transition: "easeInOut",
+                  //ease: [0, 0.71, 0.2, 1.01]
+                }}
+               className='text-center lg:text-left w-full mt-20 md:mt-0 mb-10 lg:mb-0'>A helping tool for { isDesktopOrLaptop && <br/> } the Doctors</motion.h1>
+              <motion.p 
+                initial={{ opacity: 0, x:150 }}
+                whileInView={{ opacity: 1, x:0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.8,
+                  transition: "easeInOut",
+                  //ease: [0, 0.71, 0.2, 1.01]
+                }}
+                className='text-justify w-full lg:w-2/3'>With our state-of-the-art AI technology, MedicalProne makes predicting chest diseases from X-ray images a breeze for doctors everywhere. Say goodbye to guesswork and hello to accurate diagnoses with just a few clicks. Let MedicalProne help you focus on what really matters - providing the best possible care for your patients. Try it out now and see the difference for yourself!</motion.p>
             </div>
-            <div className='grid items-center justify-center
+            <motion.div 
+              initial={{ opacity: 0, scale:0.5 }}
+              whileInView={{ opacity: 1, scale:1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.8,
+                transition: "easeInOut",
+                //ease: [0, 0.71, 0.2, 1.01]
+            }}
+              className='grid items-center justify-center
                             w-full h-full col-span-2'
             >
               <Lottie
@@ -257,7 +284,7 @@ export default function Home() {
                 autoplay={true}
                 style={{ width: 500, height: 500 }}  
               />
-            </div>
+            </motion.div>
           </div>
           <Architect/>
         </>

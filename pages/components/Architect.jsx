@@ -80,7 +80,7 @@ const Architect = () => {
         <motion.div
           className='col-span-2 lg:col-span-2 xl:col-span-2 w-full xl:w-3/4 lg:w-1/2 justify-self-center xl:justify-self-center mb-28'
           style={{ opacity: scrollYProgress}}
-          initial={{ opacity:0, y:200 }}
+          initial={{ opacity:0, y:50 }}
           whileInView={{ opacity:100, y:0 }}
           transition={{
             duration: 0.6,
