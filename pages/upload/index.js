@@ -107,7 +107,7 @@ export default function index() {
         setError(false)
         setResult(null)
         setErrorText("")
-        axios.post('https://footfall.pagekite.me/api/upload', data,
+        axios.post(`${process.env.URL}api/upload`, data,
           {
             headers: {
               'Content-Type': 'multipart/form-data',
