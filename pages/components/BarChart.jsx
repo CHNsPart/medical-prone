@@ -1,17 +1,10 @@
 import { Bar } from "react-chartjs-2";
-
+import React from "react";
 import { Chart, registerables } from 'chart.js'
 
 Chart.register(...registerables)
 
-export const BarChart = ({ chartData }) => {
-    
-    // function toObject(arr) {
-    // var rv = {};
-    // for (var i = 0; i < arr.length; ++i)
-    //     rv[i] = arr[i];
-    // return rv;
-    // }
+export default function BarChart({ chartData }) {
 
     const options = {
         responsive: true,
