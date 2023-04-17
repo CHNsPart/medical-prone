@@ -14,7 +14,6 @@ import { AiOutlineLoading } from "react-icons/ai"
 import { useMediaQuery } from 'react-responsive'
 import axios from "axios";
 import FormData from 'form-data'
-import okay from "../../public/input.jpg"
 import BarChart from "../components/BarChart";
 // const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
 //   ssr: false
@@ -277,8 +276,7 @@ export default function index() {
               <Image 
                 className="p-2 rounded-2xl bg-cover"  
                 height={200} 
-                // src={thumbnail==="" ? result.data.file_url : thumbnail} 
-                src={okay} 
+                src={thumbnail==="" ? result.data.file_url : thumbnail} 
                 loading="lazy" 
                 width={200} alt="result image"
               />
