@@ -8,7 +8,7 @@ export default function About() {
   const [chn, setChn] = useState(true)
 
   const handleChn = () => {
-    console.log("ok")
+    // console.log("ok")
     setChn(!chn)
   }
 
@@ -39,13 +39,6 @@ export default function About() {
                     />
                 </div>
                 <div className={`h-48 w-48 bg-white rounded-full object-cover overflow-hidden flex justify-center items-center ${!chn ? selected : null}`}>
-                    {/* <Image
-                        src='/next.svg'
-                        alt='Picture of the author'
-                        width={200}
-                        height={200}
-                        className='object-contain'
-                    /> */}
                     <h1 className='px-16 py-12 text-back bg-gray-200 rounded-full'>
                         R
                     </h1>

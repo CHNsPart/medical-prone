@@ -44,7 +44,7 @@ export default function BarChart({ chartData }) {
         return Number(i[1]*100);
     });
   
-    console.log(values)
+    // console.log(values)
     const data = {
         labels:keys,
         datasets: [

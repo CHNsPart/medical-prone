@@ -15,7 +15,7 @@ import { useMediaQuery } from 'react-responsive'
 import axios from "axios";
 import FormData from 'form-data'
 import okay from "../../public/input.jpg"
-import { BarChart } from "../components/BarChart";
+import BarChart from "../components/BarChart";
 // const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
 //   ssr: false
 // });
@@ -115,25 +115,26 @@ export default function index() {
           }
         )
         .then(function(res){
+          // console.log(res.data)
           setProcessing(false)
           setResult(res)
           if(res!==null){
             setDataProcessed(true)
           }
-          console.log(res)
-          console.log(res.data.data)
+          // console.log(res)
+          // console.log(res.data.data)
         })
         .catch(function(error){
           setError(true)
           setErrorText("")
           setErrorText(error.message)
           setProcessing(false)
-          console.log(error.message)
+          // console.log(error.message)
         })
       } catch (error) {
         // setError(true)
         setProcessing(false)
-        console.log(error)
+        // console.log(error)
       }
       // setDataProcessed(true)
     } else {
@@ -297,12 +298,12 @@ export default function index() {
                 transition: "easeInOut",
               }}
             >
-              <p className="rounded-xl 
+              <div className="rounded-xl 
                         justify-self-center flex justify-center 
                         items-center"
               >
                 <BarChart chartData={sortResult(result.data.data)} />
-              </p>
+              </div>
             </motion.div>
 
           </motion.div>

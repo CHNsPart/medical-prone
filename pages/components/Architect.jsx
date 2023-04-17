@@ -72,7 +72,13 @@ const Architect = () => {
                     items-center text-back justify-self-end rounded-xl 
                     bg-clip-padding object-contain px-2 xl:px-2 lg:px-0'
         > 
-          <Image className='animate-wiggle object-fill object-center h-auto w-full rounded-xl border-2 border-brandGreen shadow-2xl xl:shadow-xl lg:shadow-xl xl:shadow-brandGreen lg:shadow-brandGreen shadow-brandGreen ' src={input} alt='input' />
+          <Image 
+            className='animate-wiggle object-fill object-center h-auto w-full rounded-xl border-2 border-brandGreen shadow-2xl xl:shadow-xl lg:shadow-xl xl:shadow-brandGreen lg:shadow-brandGreen shadow-brandGreen ' 
+            src={input} 
+            alt='input' 
+            height={`auto`}
+            width={`auto`}
+          />
         </motion.div> 
 
         

@@ -7,7 +7,7 @@ const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
 
 function App({ Component, pageProps }) {
   return (
-    <AnimatePresence mode="wait" initial={true}>
+    <>
       <AnimatedCursor 
         innerSize={8}
         outerSize={20}
@@ -36,9 +36,12 @@ function App({ Component, pageProps }) {
         ]}
       />
       <Component {...pageProps} />
-    </AnimatePresence>
+    </>
   )
 }
+
+// AnimatePresence mode="wait" initial={true}
+// AnimatePresence
 
 export default dynamic(() => Promise.resolve(App), {
   ssr: false,
