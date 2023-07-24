@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic'
 const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
   ssr: false
 });
-
+//54.144.38.219
 const NotFound = () => {
 
   return (
