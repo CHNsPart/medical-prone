@@ -19,7 +19,7 @@ const Architect = () => {
   return (
     <>
       <motion.div 
-        className='h-[100vh] w-full grid justify-center items-center
+        className='h-[120vh] w-full grid justify-center items-center
                    absolute grid-col-4 xl:grid-cols-4 lg:grid-col-4 md:grid-col-4 my-20 space-x-0'
       >
       <div className='col-span-4 w-full grid grid-col-2 grid-rows-4 justify-center items-center pb-5'>

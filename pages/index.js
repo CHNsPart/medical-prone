@@ -268,7 +268,7 @@ export default function Home() {
                 //ease: [0, 0.71, 0.2, 1.01]
             }}
               className='grid items-center justify-center
-                            w-full h-full col-span-2'
+                            w-full h-screen col-span-2'
             >
               <Lottie
                 initial={{ opacity:0, y:200 }}
