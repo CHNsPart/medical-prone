@@ -139,7 +139,7 @@ export default function signup() {
             transition: "easeInOut",
             //ease: [0, 0.71, 0.2, 1.01]
           }}
-          src="https://chnspart.com/meta/abstract3d.mp4"
+          src="https://medical-prone.vercel.app/abstract3d.mp4"
           controls={false}
           muted={true}
           autoPlay={true}
